@@ -50,12 +50,14 @@ struct HasHeader<M, decltype((void) M::header)>: std::true_type {};
 /**
  * Return a boolean flag indicating the timestamp is not set
  * and zero if the message does not have a header
- * @tparam M the message to extract the header from
- * @tparam Enable
  */
 template<typename M, typename Enable = void>
 struct TimeStamp
 {
+  /**
+   * @tparam M the message to extract the header from
+   * @tparam Enable
+   */
   static std::pair<bool, int64_t> value(const M &)
   {
     return std::make_pair(false, 0);
@@ -65,11 +67,13 @@ struct TimeStamp
 /**
  * Returns a message header's timestamp, in nanoseconds, if the message's
  * header exists.
- * @tparam M the message to extract the header timestamp from
  */
 template<typename M>
 struct TimeStamp<M, typename std::enable_if<HasHeader<M>::value>::type>
 {
+  /**
+   * @tparam M the message to extract the header timestamp from
+   */
   static std::pair<bool, int64_t> value(const M & m)
   {
     const auto stamp = m.header.stamp;
@@ -94,8 +98,8 @@ public:
   /**
   * Handle a new incoming message. Calculate message age if a valid Header is present.
   *
-  * @param received_message, the message to calculate age of.
-  * @param time the message was received in nanoseconds
+  * @param received_message the message to calculate age of.
+  * @param now_nanoseconds time the message was received in nanoseconds
   */
   void OnMessageReceived(
     const T & received_message,
@@ -107,7 +111,7 @@ public:
       // only compare if non-zero
       if (timestamp_from_header.second && now_nanoseconds) {
         const std::chrono::nanoseconds age_nanos{now_nanoseconds - timestamp_from_header.second};
-        const auto age_millis = std::chrono::duration_cast<std::chrono::milliseconds>(age_nanos);
+        const auto age_millis = std::chrono::duration<double, std::milli>(age_nanos);
 
         collector::Collector::AcceptData(static_cast<double>(age_millis.count()));
       }  // else no valid time to compute age

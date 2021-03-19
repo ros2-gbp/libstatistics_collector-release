@@ -57,7 +57,7 @@ public:
    * a lock to prevent race conditions when setting the time_last_message_received_ member.
    *
    * @param received_message
-   * @param time the message was received in nanoseconds
+   * @param now_nanoseconds time the message was received in nanoseconds
    */
   void OnMessageReceived(const T & received_message, const rcl_time_point_value_t now_nanoseconds)
   override RCPPUTILS_TSA_REQUIRES(mutex_)
@@ -70,7 +70,7 @@ public:
       time_last_message_received_ = now_nanoseconds;
     } else {
       const std::chrono::nanoseconds nanos{now_nanoseconds - time_last_message_received_};
-      const auto period = std::chrono::duration_cast<std::chrono::milliseconds>(nanos);
+      const auto period = std::chrono::duration<double, std::milli>(nanos);
       time_last_message_received_ = now_nanoseconds;
       collector::Collector::AcceptData(static_cast<double>(period.count()));
     }

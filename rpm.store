@@ -1,1 +1,1 @@
-{"trim": "", "base": "0b10059", "trimbase": "", "parent": "rpm/rolling/libstatistics_collector", "previous": "ccb34a8"}
+{"base": "582eeee", "parent": "rpm/rolling/libstatistics_collector", "previous": "5ef1a03", "trim": "", "trimbase": ""}

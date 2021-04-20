@@ -1,1 +1,1 @@
-{"base": "d02c68c", "parent": "debian/rolling/libstatistics_collector", "previous": "183ebe1", "trim": "", "trimbase": ""}
+{"base": "c0428d4", "parent": "debian/galactic/libstatistics_collector", "previous": "4669e4b", "trim": "", "trimbase": ""}

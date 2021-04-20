@@ -1,0 +1,12 @@
+Source: ros-galactic-libstatistics-collector
+Section: misc
+Priority: optional
+Maintainer: ROS Tooling Working Group <ros-tooling@googlegroups.com>
+Build-Depends: debhelper (>= 9.0.0), ros-galactic-ament-cmake, ros-galactic-ament-cmake-gtest, ros-galactic-ament-cmake-ros, ros-galactic-ament-lint-auto, ros-galactic-ament-lint-common, ros-galactic-performance-test-fixture, ros-galactic-rcl, ros-galactic-rcpputils, ros-galactic-rosidl-default-generators, ros-galactic-statistics-msgs, ros-galactic-std-msgs, ros-galactic-ros-workspace, ros-galactic-rosidl-typesupport-fastrtps-c, ros-galactic-rosidl-typesupport-fastrtps-cpp
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-galactic-libstatistics-collector
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-galactic-rcl, ros-galactic-rcpputils, ros-galactic-rosidl-default-runtime, ros-galactic-statistics-msgs, ros-galactic-std-msgs, ros-galactic-ros-workspace
+Description: Lightweight aggregation utilities to collect statistics and measure message metrics.

@@ -1,0 +1,94 @@
+ros-rolling-libstatistics-collector (1.1.0-3jammy) jammy; urgency=high
+
+  * fix: measured values after the decimal point are truncated #79 <https://github.com/ros-tooling/libstatistics_collector/issues/79> (#80 <https://github.com/ros-tooling/libstatistics_collector/issues/80>)
+  * Update linter to run on rolling+focal (#81 <https://github.com/ros-tooling/libstatistics_collector/issues/81>)
+  * Add automerge.yml config file (#70 <https://github.com/ros-tooling/libstatistics_collector/issues/70>)
+  * Update QD to QL 1 (#68 <https://github.com/ros-tooling/libstatistics_collector/issues/68>)
+  * Updated QD (#64 <https://github.com/ros-tooling/libstatistics_collector/issues/64>)
+  * Updated QD Performance tests (#58 <https://github.com/ros-tooling/libstatistics_collector/issues/58>)
+  * Added benchmark test to libstatistics_collector (#57 <https://github.com/ros-tooling/libstatistics_collector/issues/57>)
+    * Added benchmark test to libstatistics_collector
+    * cppcheck supressed unknown macro warning - macos
+    * Reset heap counters
+    * Added feedback
+    * Remove unknownMacro suppression from CMakeLists.txt
+    * Added feedback
+    * moved benchmark test to test/benchmark
+    * Added feedback
+    Co-authored-by: Devin Bonnie <mailto:47613035+dabonnie@users.noreply.github.com>
+  * Report failed workflows (#56 <https://github.com/ros-tooling/libstatistics_collector/issues/56>)
+    Allow codecov failures to be silent
+  * Add default CODEOWNERS file (#55 <https://github.com/ros-tooling/libstatistics_collector/issues/55>)
+  * Remove repo activity from individual repositories in favor of centralized reporting (#52 <https://github.com/ros-tooling/libstatistics_collector/issues/52>)
+  * Don't attempt to report if originating from a fork (#43 <https://github.com/ros-tooling/libstatistics_collector/issues/43>)
+  * Removed doxygen warnings (#41 <https://github.com/ros-tooling/libstatistics_collector/issues/41>)
+    Co-authored-by: Anas Abou Allaban <mailto:allabana@amazon.com>
+  * Add autoapprove action for dependabot (#40 <https://github.com/ros-tooling/libstatistics_collector/issues/40>)
+  * Create Dependabot config file (#31 <https://github.com/ros-tooling/libstatistics_collector/issues/31>)
+    * Create Dependabot config file
+    * Randomize time of run
+    Co-authored-by: dependabot-preview[bot] <27856297+dependabot-preview[bot]@users.noreply.github.com>
+    Co-authored-by: Prajakta Gokhale <mailto:prajaktg@amazon.com>
+  * Updated QD to 3 (#30 <https://github.com/ros-tooling/libstatistics_collector/issues/30>)
+  * Add Security Vulnerability Policy pointing to REP-2006. (#24 <https://github.com/ros-tooling/libstatistics_collector/issues/24>)
+    Co-authored-by: Emerson Knapp <mailto:537409+emersonknapp@users.noreply.github.com>
+  * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Devin Bonnie, Emerson Knapp, Lucas Han, Prajakta Gokhale, Stephen Brawner, hsgwa
+
+ -- ROS Tooling Working Group <ros-tooling@googlegroups.com>  Fri, 19 Mar 2021 07:00:00 -0000
+
+ros-rolling-libstatistics-collector (1.0.1-3jammy) jammy; urgency=high
+
+  * Added quality declaration (#21 <https://github.com/ros-tooling/libstatistics_collector/issues/21>)
+    * Added quality declaration
+    * Added feedback
+    * Fixed rep link
+    * Fixed QD
+    * added feedback
+    * Added feedback
+  * Added Doxyfile (#23 <https://github.com/ros-tooling/libstatistics_collector/issues/23>)
+  * Run CI on Focal (#20 <https://github.com/ros-tooling/libstatistics_collector/issues/20>)
+  * Run lint worflow on Docker (#19 <https://github.com/ros-tooling/libstatistics_collector/issues/19>)
+  * Fix annotation syntax for thread safety attributes (#18 <https://github.com/ros-tooling/libstatistics_collector/issues/18>)
+  * Remove unused strategy matrix for ASAN CI job (#17 <https://github.com/ros-tooling/libstatistics_collector/issues/17>)
+  * Refactor workflow to extract CW reporting (#15 <https://github.com/ros-tooling/libstatistics_collector/issues/15>)
+  * Contributors: Alejandro Hernández Cordero, Emerson Knapp, Thomas Moulard
+
+ -- ROS Tooling Working Group <ros-tooling@googlegroups.com>  Wed, 27 May 2020 07:00:00 -0000
+
+ros-rolling-libstatistics-collector (1.0.0-3jammy) jammy; urgency=high
+
+  * Bump actions versions (#14 <https://github.com/ros-tooling/libstatistics_collector/issues/14>)
+    * Bump actions versions
+    * Use upload-artifact v1
+  * Bump setup-ros to 0.0.20 (#10 <https://github.com/ros-tooling/libstatistics_collector/issues/10>)
+    0.0.20 is also installing numpy which currently
+    prevents the CI runs from succeeding.
+  * Log workflow results to CloudWatch (#11 <https://github.com/ros-tooling/libstatistics_collector/issues/11>)
+  * Add repo activity workflow (#12 <https://github.com/ros-tooling/libstatistics_collector/issues/12>)
+  * export targets in a addition to include directories / libraries (#8 <https://github.com/ros-tooling/libstatistics_collector/issues/8>)
+  * Fix windows warning (#6 <https://github.com/ros-tooling/libstatistics_collector/issues/6>)
+  * Apply windows vibility fix changes (#5 <https://github.com/ros-tooling/libstatistics_collector/issues/5>)
+    * Apply windows vibility fix changes
+    * Add test fixes
+    * Add ament_cmake_ros dependency
+    * Alphasort CmakeLists.txt
+    * Alphasort package.xml
+    * Alphasort collector.hpp
+    * Add quotes in cmake
+  * Fix README test badge (#4 <https://github.com/ros-tooling/libstatistics_collector/issues/4>)
+    * Fix README test badge
+    * Fix bracket
+  * Fix license format and add linter actions (#3 <https://github.com/ros-tooling/libstatistics_collector/issues/3>)
+  * Update GH Actions badge
+  * Move libstatistics_collector folder from system_metrics_collector (#2 <https://github.com/ros-tooling/libstatistics_collector/issues/2>)
+    * Moved libstatistics_collector folder from system_metrics_collector
+    * Address review comments
+    * Add actions, reflect changes in statistics_msgs
+    * Add CONTRIBUTING.md
+    Co-authored-by: Prajakta Gokhale <mailto:prajaktg@amazon.com>
+  * Initial commit
+  * Contributors: Devin Bonnie, Dirk Thomas, Emerson Knapp, Prajakta Gokhale, Thomas Moulard
+
+ -- ROS Tooling Working Group <ros-tooling@googlegroups.com>  Wed, 29 Apr 2020 07:00:00 -0000
+
+

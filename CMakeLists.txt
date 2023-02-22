@@ -6,10 +6,9 @@ if(NOT CMAKE_C_STANDARD)
   set(CMAKE_C_STANDARD 99)
 endif()
 
-# Default to C++17
+# Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 17)
-  set(CMAKE_CXX_STANDARD_REQUIRED ON)
+  set(CMAKE_CXX_STANDARD 14)
 endif()
 
 # Enable strict compiler flags if possible.
@@ -28,10 +27,12 @@ if(WIN32)
 endif()
 
 # find dependencies
+find_package(ament_cmake REQUIRED)
 find_package(ament_cmake_ros REQUIRED)
 find_package(builtin_interfaces REQUIRED)
 find_package(rcl REQUIRED)
 find_package(rcpputils REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
 find_package(statistics_msgs REQUIRED)
 
 add_library(${PROJECT_NAME}
@@ -73,7 +74,6 @@ if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   find_package(ament_cmake_gtest REQUIRED)
   find_package(performance_test_fixture REQUIRED)
-  find_package(rosidl_default_generators REQUIRED)
   find_package(std_msgs REQUIRED)
 
   ament_lint_auto_find_test_dependencies()

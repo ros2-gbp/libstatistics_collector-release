@@ -4,13 +4,13 @@ This document is a declaration of software quality for the `libstatistics_collec
 
 The package `libstatistics_collector` claims to be in the **Quality Level 1** category when it is used with a **Quality Level 1** middleware.
 
-Below are the rationales, notes, and caveats for this claim, organized by each requirement listed in the [Package Quality Categories in REP-2004](https://www.ros.org/reps/rep-2004.html) of the ROS2 developer guide.
+Below are the rationales, notes, and caveats for this claim, organized by each requirement listed in the [Package Quality Categories in REP-2004](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#package-quality-categories) of the ROS2 developer guide.
 
 ## Version Policy [1]
 
 ### Version Scheme [1.i]
 
-`libstatistics_collector` uses `semver` according to the recommendation for ROS Core packages in the [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/Contributing/Developer-Guide.html#versioning).
+`libstatistics_collector` uses `semver` according to the recommendation for ROS Core packages in the [ROS 2 Developer Guide](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#versioning)
 
 ### Version Stability [1.ii]
 
@@ -37,11 +37,11 @@ All installed headers are in the `include` directory of the package, headers in 
 
 ## Change Control Process [2]
 
-`libstatistics_collector` follows the recommended guidelines for ROS Core packages in the [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/Contributing/Developer-Guide.html#change-control-process).
+`libstatistics_collector` follows the recommended guidelines for ROS Core packages in the [ROS 2 Developer Guide](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#change-control-process).
 
 ### Change Requests [2.i]
 
-All changes will occur through a pull request, check [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/Contributing/Developer-Guide.html#change-control-process) for additional information.
+All changes will occur through a pull request, check [ROS 2 Developer Guide](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#change-control-process) for additional information.
 
 ### Contributor Origin [2.ii]
 
@@ -49,18 +49,17 @@ This package uses DCO as its confirmation of contributor origin policy. More inf
 
 ### Peer Review Policy [2.iii]
 
-All pull requests will be peer-reviewed, check [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/Contributing/Developer-Guide.html#change-control-process) for additional information.
+All pull requests will be peer-reviewed, check [ROS 2 Developer Guide](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#change-control-process) for additional information.
 
 ### Continuous Integration [2.iv]
 
 All pull requests must pass CI on all [tier 1 platforms](https://www.ros.org/reps/rep-2000.html#support-tiers)
 
-Currently nightly results can be seen here:
-
-* [linux-aarch64_release](https://ci.ros2.org/view/nightly/job/nightly_linux-aarch64_release/lastCompletedBuild/testReport/libstatistics_collector/)
-* [linux_release](https://ci.ros2.org/view/nightly/job/nightly_linux_release/lastCompletedBuild/testReport/libstatistics_collector/)
-* [mac_osx_release](https://ci.ros2.org/view/nightly/job/nightly_osx_release/lastCompletedBuild/testReport/libstatistics_collector/)
-* [windows_release](https://ci.ros2.org/view/nightly/job/nightly_win_rel/lastCompletedBuild/testReport/libstatistics_collector/)
+Though there are no nightly jobs for foxy outside of linux, each change is tested on ci.ros2.org.
+* [linux-aarch64](https://ci.ros2.org/job/ci_linux-aarch64)
+* [linux](https://ci.ros2.org/job/ci_linux)
+* [mac_osx](https://ci.ros2.org/job/ci_osx)
+* [windows](https://ci.ros2.org/job/ci_windows)
 
 ###  Documentation Policy [2.v]
 
@@ -70,7 +69,7 @@ All pull requests must resolve related documentation changes before merging.
 
 ### Feature Documentation [3.i]
 
-`libstatistics_collector` has a [feature list](https://github.com/ros-tooling/libstatistics_collector/blob/master/README.md) and each item in the list links to the corresponding feature documentation. There is documentation for all of the features, and new features require documentation before being added.
+`libstatistics_collector` has a [feature list](https://github.com/ros-tooling/libstatistics_collector/blob/foxy-devel/README.md) and each item in the list links to the corresponding feature documentation. There is documentation for all of the features, and new features require documentation before being added.
 
 ### Public API Documentation [3.ii]
 
@@ -80,27 +79,26 @@ The API documentation is not publicly available yet.
 
 The license for `libstatistics_collector` is Apache 2.0, and a summary is in each source file, the type is declared in the [`package.xml`](./package.xml) manifest file, and a full copy of the license is in the [`LICENSE`](LICENSE) file.
 
-There is an automated test which runs a linter that ensures each file has a license statement. [Here](https://ci.ros2.org/job/nightly_linux_release/lastBuild/testReport/libstatistics_collector/) can be found a list with the latest results of the various linters being run on the package.
+There is an automated test which runs a linter that ensures each file has a license statement. [Here](http://build.ros2.org/view/Fpr/job/Fpr__libstatistics_collector__ubuntu_focal_amd64/lastCompletedBuild/testReport/libstatistics_collector) can be found a list with the latest results of the various linters being run on the package.
 
 ### Copyright Statements [3.iv]
 
 The copyright holders each provide a statement of copyright in each source code file in `libstatistics_collector`.
 
-There is an automated test which runs a linter that ensures each file has at least one copyright statement. Latest linter result report can be seen [here](http://build.ros2.org/view/Epr/job/Epr__libstatistics_collector__ubuntu_bionic_amd64/lastCompletedBuild/testReport/libstatistics_collector/copyright/).
+There is an automated test which runs a linter that ensures each file has at least one copyright statement. Latest linter result report can be seen [here](http://build.ros2.org/view/Fpr/job/Fpr__libstatistics_collector__ubuntu_focal_amd64/lastCompletedBuild/testReport/libstatistics_collector/copyright/).
 
 ## Testing [4]
 
 ### Feature Testing [4.i]
 
-Each feature in `libstatistics_collector` has corresponding tests which simulate typical usage, and they are located in the [`test`](https://github.com/ros2/libstatistics_collector/tree/master/test) directory.
+Each feature in `libstatistics_collector` has corresponding tests which simulate typical usage, and they are located in the [`test`](https://github.com/ros-tooling/libstatistics_collector/tree/foxy-devel/test) directory.
 New features are required to have tests before being added.
 
-Currently nightly test results can be seen here:
-
-* [linux-aarch64_release](https://ci.ros2.org/view/nightly/job/nightly_linux-aarch64_release/lastCompletedBuild/testReport/libstatistics_collector/)
-* [linux_release](https://ci.ros2.org/view/nightly/job/nightly_linux_release/lastCompletedBuild/testReport/libstatistics_collector/)
-* [mac_osx_release](https://ci.ros2.org/view/nightly/job/nightly_osx_release/lastCompletedBuild/testReport/libstatistics_collector/)
-* [windows_release](https://ci.ros2.org/view/nightly/job/nightly_win_rel/lastCompletedBuild/testReport/libstatistics_collector/)
+Though there are no nightly jobs for foxy outside of linux, each change is tested on ci.ros2.org.
+* [linux-aarch64](https://ci.ros2.org/job/ci_linux-aarch64)
+* [linux](https://ci.ros2.org/job/ci_linux)
+* [mac_osx](https://ci.ros2.org/job/ci_osx)
+* [windows](https://ci.ros2.org/job/ci_windows)
 
 ### Public API Testing [4.ii]
 
@@ -109,7 +107,7 @@ The tests aim to cover both typical usage and corner cases, but are quantified b
 
 ### Coverage [4.iii]
 
-`libstatistics_collector` follows the recommendations for ROS Core packages in the [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/Contributing/Developer-Guide.html#code-coverage), and opts to use line coverage instead of branch coverage.
+`libstatistics_collector` follows the recommendations for ROS Core packages in the [ROS 2 Developer Guide](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#code-coverage), and opts to use line coverage instead of branch coverage.
 
 This includes:
 
@@ -123,25 +121,21 @@ Each time that a new PR is created [codecov](https://codecov.io/) will create di
 
 ### Performance [4.iv]
 
-`libstatistics_collector` follows the recommendations for performance testing of C/C++ code in the [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/Contributing/Developer-Guide.html#performance), and opts to do performance analysis on each release rather than each change.
+`libstatistics_collector` follows the recommendations for performance testing of C/C++ code in the [ROS 2 Developer Guide](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#performance), and opts to do performance analysis on each release rather than each change.
 
-The performance tests of this package are located in the [test/benchmark directory](https://github.com/ros-tooling/libstatistics_collector/tree/master/test/benchmark).
+The performance tests of this package are located in the [test/benchmark directory](https://github.com/ros-tooling/libstatistics_collector/tree/foxy-devel/test/benchmark).
 
 Package and system level performance benchmarks that cover features of `libstatistics_collector` can be found at:
-* [Benchmarks](http://build.ros2.org/view/Rci/job/Rci__benchmark_ubuntu_focal_amd64/BenchmarkTable/)
-* [Performance](http://build.ros2.org/view/Rci/job/Rci__nightly-performance_ubuntu_focal_amd64/lastCompletedBuild/)
+* [Benchmarks](http://build.ros2.org/view/Fci/job/Fci__benchmark_ubuntu_focal_amd64/BenchmarkTable/)
+* [Performance](http://build.ros2.org/view/Fci/job/Fci__nightly-performance_ubuntu_focal_amd64/lastCompletedBuild/)
 
 Changes that introduce regressions in performance must be adequately justified in order to be accepted and merged.
 
 ### Linters and Static Analysis [4.v]
 
-`libstatistics_collector` uses and passes all the ROS2 standard linters and static analysis tools for a C++ package as described in the [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/Contributing/Developer-Guide.html#linters-and-static-analysis). Passing implies there are no linter/static errors when testing against CI of supported platforms.
+`libstatistics_collector` uses and passes all the ROS2 standard linters and static analysis tools for a C++ package as described in the [ROS 2 Developer Guide](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#linters-and-static-analysis). Passing implies there are no linter/static errors when testing against CI of supported platforms.
 
-Currently nightly test results can be seen here:
-* [linux-aarch64_release](https://ci.ros2.org/view/nightly/job/nightly_linux-aarch64_release/lastCompletedBuild/testReport/libstatistics_collector/)
-* [linux_release](https://ci.ros2.org/view/nightly/job/nightly_linux_release/lastCompletedBuild/testReport/libstatistics_collector/)
-* [mac_osx_release](https://ci.ros2.org/view/nightly/job/nightly_osx_release/lastCompletedBuild/testReport/libstatistics_collector/)
-* [windows_release](https://ci.ros2.org/view/nightly/job/nightly_win_rel/lastCompletedBuild/testReport/libstatistics_collector/)
+Currently nightly test results can be seen [here](http://build.ros2.org/view/Fpr/job/Fpr__libstatistics_collector__ubuntu_focal_amd64/lastCompletedBuild/testReport/libstatistics_collector).
 
 ## Dependencies [5]
 
@@ -153,31 +147,31 @@ Currently nightly test results can be seen here:
 
 The `rcl` package supports implementation of language specific ROS Client Libraries.
 
-It is **Quality Level 1**, see its [Quality Declaration document](https://github.com/ros2/rcl/blob/master/rcl/QUALITY_DECLARATION.md).
+It is **Quality Level 1**, see its [Quality Declaration document](https://github.com/ros2/rcl/blob/foxy/rcl/QUALITY_DECLARATION.md).
 
 #### `rcpputils`
 
 The `rcpputils` package is a C++ API consisting of macros, functions, and data structures intended for use throughout the ROS 2 codebase.
 
-It is **Quality Level 1**, see its [Quality Declaration document](https://github.com/ros2/rcpputils/blob/master/QUALITY_DECLARATION.md).
+It is **Quality Level 1**, see its [Quality Declaration document](https://github.com/ros2/rcpputils/blob/foxy/QUALITY_DECLARATION.md).
 
 #### `rosidl_default_runtime`
 
 The `rosidl_default_runtime` provides CMake functionality for finding and adding runtime dependencies for rosidl packages.
 
-It is **Quality Level 1**, see its [Quality Declaration document](https://github.com/ros2/rosidl_defaults/blob/master/rosidl_default_runtime/QUALITY_DECLARATION.md).
+It is **Quality Level 1**, see its [Quality Declaration document](https://github.com/ros2/rosidl_defaults/blob/foxy/rosidl_default_runtime/QUALITY_DECLARATION.md).
 
 #### `statistics_msgs`
 
 The `statistics_msgs` package contains ROS 2 message definitions for reporting statistics for topics and system resources.
 
-It is **Quality Level 1**, see its [Quality Declaration document](https://github.com/ros2/rcl_interfaces/blob/master/statistics_msgs/QUALITY_DECLARATION.md).
+It is **Quality Level 1**, see its [Quality Declaration document](https://github.com/ros2/rcl_interfaces/blob/foxy/statistics_msgs/QUALITY_DECLARATION.md).
 
 #### `std_msgs`
 
 The `std_msgs` package provides many basic message types.
 
-It is **Quality Level 1**, see its [Quality Declaration document](https://github.com/ros2/common_interfaces/blob/master/std_msgs/QUALITY_DECLARATION.md).
+It is **Quality Level 1**, see its [Quality Declaration document](https://github.com/ros2/common_interfaces/blob/foxy/std_msgs/QUALITY_DECLARATION.md).
 
 It has several "buildtool" dependencies, which do not affect the resulting quality of the package, because they do not contribute to the public library API.
 It also has several test dependencies, which do not affect the resulting quality of the package, because they are only used to build and run the test code.
@@ -190,11 +184,11 @@ It also has several test dependencies, which do not affect the resulting quality
 
 `libstatistics_collector` supports all of the tier 1 platforms as described in [REP-2000](https://www.ros.org/reps/rep-2000.html#support-tiers), and tests each change against all of them.
 
-Currently nightly build status can be seen here:
-* [linux-aarch64_release](https://ci.ros2.org/view/nightly/job/nightly_linux-aarch64_release/lastCompletedBuild/libstatistics_collector/)
-* [linux_release](https://ci.ros2.org/view/nightly/job/nightly_linux_release/lastCompletedBuild/libstatistics_collector/)
-* [mac_osx_release](https://ci.ros2.org/view/nightly/job/nightly_osx_release/lastCompletedBuild/libstatistics_collector/)
-* [windows_release](https://ci.ros2.org/view/nightly/job/nightly_win_rel/lastCompletedBuild/libstatistics_collector/)
+Though there are no nightly jobs for foxy outside of linux, each change is tested on ci.ros2.org.
+* [linux-aarch64](https://ci.ros2.org/job/ci_linux-aarch64)
+* [linux](https://ci.ros2.org/job/ci_linux)
+* [mac_osx](https://ci.ros2.org/job/ci_osx)
+* [windows](https://ci.ros2.org/job/ci_windows)
 
 ## Security
 

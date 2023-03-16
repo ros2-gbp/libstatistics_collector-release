@@ -1,3 +1,26 @@
+## libstatistics_collector (foxy) - 1.0.2-1
+
+The packages in the `libstatistics_collector` repository were released into the `foxy` distro by running `/usr/bin/bloom-release --track foxy --rosdistro foxy libstatistics_collector` on `Thu, 16 Mar 2023 18:15:47 -0000`
+
+The `libstatistics_collector` package was released.
+
+Version of package(s) in repository `libstatistics_collector`:
+
+- upstream repository: https://github.com/ros-tooling/libstatistics_collector.git
+- release repository: https://github.com/ros2-gbp/libstatistics_collector-release.git
+- rosdistro version: `1.0.1-1`
+- old version: `1.0.1-1`
+- new version: `1.0.2-1`
+
+Versions of tools used:
+
+- bloom version: `0.11.2`
+- catkin_pkg version: `0.5.2`
+- rosdep version: `0.22.1`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## libstatistics_collector (humble) - 1.3.1-1
 
 The packages in the `libstatistics_collector` repository were released into the `humble` distro by running `/usr/bin/bloom-release --rosdistro humble libstatistics_collector` on `Wed, 22 Feb 2023 05:05:05 -0000`

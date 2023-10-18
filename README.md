@@ -1,3 +1,26 @@
+## libstatistics_collector (rolling) - 1.6.3-1
+
+The packages in the `libstatistics_collector` repository were released into the `rolling` distro by running `/usr/bin/bloom-release --rosdistro rolling libstatistics_collector` on `Wed, 18 Oct 2023 04:06:11 -0000`
+
+The `libstatistics_collector` package was released.
+
+Version of package(s) in repository `libstatistics_collector`:
+
+- upstream repository: https://github.com/ros-tooling/libstatistics_collector.git
+- release repository: https://github.com/ros2-gbp/libstatistics_collector-release.git
+- rosdistro version: `1.6.2-1`
+- old version: `1.6.2-1`
+- new version: `1.6.3-1`
+
+Versions of tools used:
+
+- bloom version: `0.11.2`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.22.2`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## libstatistics_collector (rolling) - 1.6.2-1
 
 The packages in the `libstatistics_collector` repository were released into the `rolling` distro by running `/usr/bin/bloom-release --track rolling --rosdistro rolling libstatistics_collector` on `Thu, 11 May 2023 12:59:32 -0000`

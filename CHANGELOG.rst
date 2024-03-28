@@ -2,6 +2,11 @@
 Changelog for package libstatistics_collector
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.7.1 (2024-03-28)
+------------------
+* Fixes for newer uncrustify. (`#186 <https://github.com/ros-tooling/libstatistics_collector/issues/186>`_)
+* Contributors: Chris Lalancette, dependabot[bot]
+
 1.7.0 (2023-12-26)
 ------------------
 * Bump actions/upload-artifact from 3 to 4

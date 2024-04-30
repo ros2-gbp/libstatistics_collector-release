@@ -1,0 +1,12 @@
+Source: ros-rolling-libstatistics-collector
+Section: misc
+Priority: optional
+Maintainer: ROS Tooling Working Group <ros-tooling@googlegroups.com>
+Build-Depends: debhelper (>= 9.0.0), ros-rolling-ament-cmake-gtest <!nocheck>, ros-rolling-ament-cmake-ros, ros-rolling-ament-lint-auto <!nocheck>, ros-rolling-ament-lint-common <!nocheck>, ros-rolling-builtin-interfaces, ros-rolling-performance-test-fixture <!nocheck>, ros-rolling-rcl, ros-rolling-rcpputils, ros-rolling-rcutils <!nocheck>, ros-rolling-rmw, ros-rolling-rosidl-default-generators <!nocheck>, ros-rolling-rosidl-default-runtime <!nocheck>, ros-rolling-statistics-msgs, ros-rolling-std-msgs <!nocheck>, ros-rolling-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-rolling-libstatistics-collector
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-rolling-builtin-interfaces, ros-rolling-rcl, ros-rolling-rcpputils, ros-rolling-rmw, ros-rolling-statistics-msgs, ros-rolling-ros-workspace
+Description: Lightweight aggregation utilities to collect statistics and measure message metrics.

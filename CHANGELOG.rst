@@ -2,14 +2,16 @@
 Changelog for package libstatistics_collector
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.8.0 (2024-04-30)
+1.7.3 (2024-06-24)
 ------------------
-* Switch to Noble for Rolling. (`#193 <https://github.com/ros-tooling/libstatistics_collector/issues/193>`_)
-* Lower dependabot update frequency (`#192 <https://github.com/ros-tooling/libstatistics_collector/issues/192>`_)
+* fix: add void annotation (`#194 <https://github.com/ros-tooling/libstatistics_collector/issues/194>`_) (`#195 <https://github.com/ros-tooling/libstatistics_collector/issues/195>`_)
+* Contributors: Daisuke Nishimatsu
+
+1.7.2 (2024-04-24)
+------------------
 * Bump pascalgn/automerge-action from 0.16.2 to 0.16.3
-* Bump codecov/codecov-action from 4.2.0 to 4.3.0
 * Bump codecov/codecov-action from 4.1.1 to 4.2.0
-* Contributors: Chris Lalancette, Christophe Bedard, dependabot[bot]
+* Contributors: dependabot[bot]
 
 1.7.1 (2024-03-28)
 ------------------

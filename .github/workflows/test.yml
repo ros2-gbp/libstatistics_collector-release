@@ -13,21 +13,15 @@ jobs:
   build_and_test_ubuntu:
     runs-on: ubuntu-latest
     container:
-      image: rostooling/setup-ros-docker:ubuntu-noble-latest
+      image: rostooling/setup-ros-docker:ubuntu-jammy-latest
     steps:
     - uses: ros-tooling/action-ros-ci@v0.3
       with:
         package-name: libstatistics_collector
-        colcon-defaults: |
-          {
-            "build": {
-              "mixin": [
-                "coverage-gcc"
-              ]
-            }
-          }
+        colcon-mixin-name: coverage-gcc
+        colcon-mixin-repository: https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml
         target-ros2-distro: rolling
-    - uses: codecov/codecov-action@v4.5.0
+    - uses: codecov/codecov-action@v3.1.2
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         file: ros_ws/lcov/total_coverage.info
@@ -35,7 +29,7 @@ jobs:
         name: codecov-umbrella
         yml: ./codecov.yml
         fail_ci_if_error: false
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v3
       with:
         name: colcon-logs-${{ matrix.os }}
         path: ros_ws/log
@@ -43,21 +37,15 @@ jobs:
   build_and_test_asan:
     runs-on: ubuntu-latest
     container:
-      image: rostooling/setup-ros-docker:ubuntu-noble-latest
+      image: rostooling/setup-ros-docker:ubuntu-jammy-latest
     steps:
     - uses: ros-tooling/action-ros-ci@v0.3
       with:
-        colcon-defaults: |
-          {
-            "build": {
-              "mixin": [
-                "asan-gcc"
-              ]
-            }
-          }
+        colcon-mixin-name: asan
+        colcon-mixin-repository: https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml
         package-name: libstatistics_collector
         target-ros2-distro: rolling
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v3
       with:
         name: colcon-logs-ubuntu-asan
         path: ros_ws/log

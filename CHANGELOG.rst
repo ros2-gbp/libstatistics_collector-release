@@ -2,59 +2,15 @@
 Changelog for package libstatistics_collector
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.0.0 (2024-07-29)
+1.5.3 (2024-11-09)
 ------------------
-* Removed deprecated classes (`#200 <https://github.com/ros-tooling/libstatistics_collector/issues/200>`_)
-* fix: add void annotation (`#194 <https://github.com/ros-tooling/libstatistics_collector/issues/194>`_)
-* Contributors: Alejandro Hernández Cordero, Daisuke Nishimatsu, dependabot[bot]
+* Fix MovingAverageStatistics::max\_ Default Value (`#203 <https://github.com/ros-tooling/libstatistics_collector/issues/203>`_)
+* Contributors: Jeffery Hsu
 
-1.8.0 (2024-04-30)
+1.5.2 (2023-11-17)
 ------------------
-* Switch to Noble for Rolling. (`#193 <https://github.com/ros-tooling/libstatistics_collector/issues/193>`_)
-* Lower dependabot update frequency (`#192 <https://github.com/ros-tooling/libstatistics_collector/issues/192>`_)
-* Bump pascalgn/automerge-action from 0.16.2 to 0.16.3
-* Bump codecov/codecov-action from 4.2.0 to 4.3.0
-* Bump codecov/codecov-action from 4.1.1 to 4.2.0
-* Contributors: Chris Lalancette, Christophe Bedard, dependabot[bot]
-
-1.7.1 (2024-03-28)
-------------------
-* Fixes for newer uncrustify. (`#186 <https://github.com/ros-tooling/libstatistics_collector/issues/186>`_)
-* Contributors: Chris Lalancette, dependabot[bot]
-
-1.7.0 (2023-12-26)
-------------------
-* Bump actions/upload-artifact from 3 to 4
-* Switch to using target_link_libraries everywhere. (`#174 <https://github.com/ros-tooling/libstatistics_collector/issues/174>`_)
-* Contributors: Chris Lalancette, dependabot[bot]
-
-1.6.4 (2023-11-06)
-------------------
-* Bump rolling to 1.6.3 (`#173 <https://github.com/ros-tooling/libstatistics_collector/issues/173>`_)
-* Bump actions/checkout from 3 to 4 (`#169 <https://github.com/ros-tooling/libstatistics_collector/issues/169>`_)
-* Add API to use message_info instead unserialized message (`#170 <https://github.com/ros-tooling/libstatistics_collector/issues/170>`_)
-* Bump codecov/codecov-action from 3.1.3 to 3.1.4
-* Contributors: Lucas Wendland, Michael Orlov, dependabot[bot]
-
-1.6.3 (2023-10-16)
-------------------
-* Bump actions/checkout from 3 to 4 (`#169 <https://github.com/ros-tooling/libstatistics_collector/issues/169>`_)
-* Add API to use message_info instead unserialized message (`#170 <https://github.com/ros-tooling/libstatistics_collector/issues/170>`_)
-* Bump codecov/codecov-action from 3.1.3 to 3.1.4
-* Contributors: Lucas Wendland, Michael Orlov, dependabot[bot]
-
-1.6.2 (2023-05-11)
-------------------
-
-1.6.1 (2023-05-11)
-------------------
-* Add in missing cstdint include. (`#165 <https://github.com/ros-tooling/libstatistics_collector/issues/165>`_)
+* Add in missing cstdint include. (`#172 <https://github.com/ros-tooling/libstatistics_collector/issues/172>`_)
 * Contributors: Chris Lalancette
-
-1.6.0 (2023-04-28)
-------------------
-* Bump codecov/codecov-action from 3.1.2 to 3.1.3
-* Contributors: dependabot[bot]
 
 1.5.1 (2023-04-12)
 ------------------

@@ -28,8 +28,6 @@
 #include "builtin_interfaces/msg/time.hpp"
 #include "rcl/time.h"
 
-#include "rmw/types.h"
-
 namespace libstatistics_collector
 {
 namespace topic_statistics_collector
@@ -87,46 +85,39 @@ struct TimeStamp<M, typename std::enable_if<HasHeader<M>::value>::type>
 };
 
 /**
- * Primary specialization class template until deprecated templated class is phased out
- * @warning Don't use templated version of the ReceivedMessageAgeCollector, use
- * libstatistics_collector::ReceivedMessageAgeCollector alias with rmw_message_info_t
- * parameter in the OnMessageReceived callback
- */
-template<typename T = rmw_message_info_t, typename Enable = void>
-class ReceivedMessageAgeCollector : public TopicStatisticsCollector<T>
-{};
-
-/**
- * Class used to measure the received message age from a ROS2 subscriber.
+ * Class used to measure the received messsage, tparam T, age from a ROS2 subscriber.
+ *
+ * @tparam T the message type to receive from the subscriber / listener
 */
-using message_info_same = std::is_same<rmw_message_info_t, rmw_message_info_t>;
-template<>
-class ReceivedMessageAgeCollector<rmw_message_info_t, std::enable_if_t<message_info_same::value>>
-  : public TopicStatisticsCollector<>
+template<typename T>
+class ReceivedMessageAgeCollector : public TopicStatisticsCollector<T>
 {
 public:
   ReceivedMessageAgeCollector() = default;
 
-  ~ReceivedMessageAgeCollector() override = default;
+  virtual ~ReceivedMessageAgeCollector() = default;
 
   /**
-  * Handle a new incoming message. Calculate message age if timestamps in message info are valid.
+  * Handle a new incoming message. Calculate message age if a valid Header is present.
   *
-  * @param message_info the message information of the received message.
+  * @param received_message the message to calculate age of.
   * @param now_nanoseconds time the message was received in nanoseconds
   */
   void OnMessageReceived(
-    const rmw_message_info_t & message_info,
+    const T & received_message,
     const rcl_time_point_value_t now_nanoseconds) override
   {
-    // only compare if non-zero
-    if (message_info.source_timestamp && now_nanoseconds) {
-      const std::chrono::nanoseconds age_nanos{now_nanoseconds -
-        message_info.source_timestamp};
-      const auto age_millis = std::chrono::duration<double, std::milli>(age_nanos);
+    const auto timestamp_from_header = TimeStamp<T>::value(received_message);
 
-      collector::Collector::AcceptData(static_cast<double>(age_millis.count()));
-    }  // else no valid time to compute age
+    if (timestamp_from_header.first) {
+      // only compare if non-zero
+      if (timestamp_from_header.second && now_nanoseconds) {
+        const std::chrono::nanoseconds age_nanos{now_nanoseconds - timestamp_from_header.second};
+        const auto age_millis = std::chrono::duration<double, std::milli>(age_nanos);
+
+        collector::Collector::AcceptData(static_cast<double>(age_millis.count()));
+      }  // else no valid time to compute age
+    }
   }
 
   /**
@@ -140,9 +131,9 @@ public:
   }
 
   /**
-   * Return message age metric unit
+   * Return messge age metric unit
    *
-   * @return a string representing message age metric unit
+   * @return a string representing messager age metric unit
    */
   std::string GetMetricUnit() const override
   {
@@ -162,9 +153,6 @@ protected:
 };
 
 }  // namespace topic_statistics_collector
-
-using ReceivedMessageAgeCollector = topic_statistics_collector::ReceivedMessageAgeCollector<>;
-
 }  // namespace libstatistics_collector
 
 #endif  // LIBSTATISTICS_COLLECTOR__TOPIC_STATISTICS_COLLECTOR__RECEIVED_MESSAGE_AGE_HPP_

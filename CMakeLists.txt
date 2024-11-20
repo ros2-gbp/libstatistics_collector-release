@@ -32,6 +32,7 @@ find_package(ament_cmake_ros REQUIRED)
 find_package(builtin_interfaces REQUIRED)
 find_package(rcl REQUIRED)
 find_package(rcpputils REQUIRED)
+find_package(rmw REQUIRED)
 find_package(statistics_msgs REQUIRED)
 
 add_library(${PROJECT_NAME}
@@ -46,11 +47,12 @@ target_include_directories(${PROJECT_NAME} PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
   "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
 
-ament_target_dependencies(${PROJECT_NAME}
-  "builtin_interfaces"
-  "rcl"
-  "rcpputils"
-  "statistics_msgs"
+target_link_libraries(${PROJECT_NAME} PUBLIC
+  ${builtin_interfaces_TARGETS}
+  rcl::rcl
+  rcpputils::rcpputils
+  rmw::rmw
+  ${statistics_msgs_TARGETS}
 )
 
 install(
@@ -67,7 +69,7 @@ ament_export_libraries(${PROJECT_NAME})
 # Export modern CMake targets
 ament_export_targets(${PROJECT_NAME})
 
-ament_export_dependencies("builtin_interfaces" "rcl" "rcpputils" "rosidl_default_runtime" "statistics_msgs")
+ament_export_dependencies("builtin_interfaces" "rcl" "rcpputils" "rmw" "rosidl_default_runtime" "statistics_msgs")
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -81,22 +83,18 @@ if(BUILD_TESTING)
   ament_add_gtest(test_collector
     test/collector/test_collector.cpp)
   target_link_libraries(test_collector ${PROJECT_NAME})
-  ament_target_dependencies(test_collector "rcpputils")
 
   ament_add_gtest(test_moving_average_statistics
     test/moving_average_statistics/test_moving_average_statistics.cpp)
   target_link_libraries(test_moving_average_statistics ${PROJECT_NAME})
-  ament_target_dependencies(test_moving_average_statistics "rcpputils")
 
   ament_add_gtest(test_received_message_period
     test/topic_statistics_collector/test_received_message_period.cpp)
-  target_link_libraries(test_received_message_period ${PROJECT_NAME})
-  ament_target_dependencies(test_received_message_period "rcl" "rcpputils")
+  target_link_libraries(test_received_message_period ${PROJECT_NAME} rcl::rcl rmw::rmw)
 
   ament_add_gtest(test_received_message_age
     test/topic_statistics_collector/test_received_message_age.cpp)
-  target_link_libraries(test_received_message_age ${PROJECT_NAME})
-  ament_target_dependencies(test_received_message_age "rcl" "rcpputils")
+  target_link_libraries(test_received_message_age ${PROJECT_NAME} rcl::rcl rmw::rmw)
 
   rosidl_generate_interfaces(libstatistics_collector_test_msgs
     "test/msg/DummyMessage.msg"

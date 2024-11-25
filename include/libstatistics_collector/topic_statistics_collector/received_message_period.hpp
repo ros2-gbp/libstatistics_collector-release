@@ -24,8 +24,6 @@
 
 #include "rcl/time.h"
 
-#include "rmw/types.h"
-
 namespace libstatistics_collector
 {
 namespace topic_statistics_collector
@@ -34,19 +32,13 @@ namespace topic_statistics_collector
 constexpr const int64_t kUninitializedTime{0};
 
 /**
- * Primary specialization class template until deprecated templated class is phased out
- * @warning Don't use templated version of the ReceivedMessagePeriodCollector, use
- * libstatistics_collector::ReceivedMessagePeriodCollector alias with rmw_message_info_t
- * parameter in the OnMessageReceived callback
- */
-template<typename T = rmw_message_info_t, typename Enable = void>
+ * Class used to measure the received messsage, tparam T, period from a ROS2 subscriber. This class
+ * is thread safe and acquires a mutex when the member OnMessageReceived is executed.
+ *
+ * @tparam T the message type to receive from the subscriber / listener
+*/
+template<typename T>
 class ReceivedMessagePeriodCollector : public TopicStatisticsCollector<T>
-{};
-
-using message_info_same = std::is_same<rmw_message_info_t, rmw_message_info_t>;
-template<>
-class ReceivedMessagePeriodCollector<rmw_message_info_t, std::enable_if_t<message_info_same::value>>
-  : public TopicStatisticsCollector<>
 {
 public:
   /**
@@ -58,23 +50,21 @@ public:
     ResetTimeLastMessageReceived();
   }
 
-  ~ReceivedMessagePeriodCollector() override = default;
+  virtual ~ReceivedMessagePeriodCollector() = default;
 
   /**
    * Handle a message received and measure its received period. This member is thread safe and acquires
    * a lock to prevent race conditions when setting the time_last_message_received_ member.
    *
-   * @param message_info the message information of the received message
+   * @param received_message
    * @param now_nanoseconds time the message was received in nanoseconds
    */
-  void OnMessageReceived(
-    const rmw_message_info_t & message_info,
-    const rcl_time_point_value_t now_nanoseconds)
+  void OnMessageReceived(const T & received_message, const rcl_time_point_value_t now_nanoseconds)
   override RCPPUTILS_TSA_REQUIRES(mutex_)
   {
     std::unique_lock<std::mutex> ulock{mutex_};
 
-    (void) message_info;
+    (void) received_message;
 
     if (time_last_message_received_ == kUninitializedTime) {
       time_last_message_received_ = now_nanoseconds;
@@ -140,9 +130,6 @@ private:
 };
 
 }  // namespace topic_statistics_collector
-
-using ReceivedMessagePeriodCollector = topic_statistics_collector::ReceivedMessagePeriodCollector<>;
-
 }  // namespace libstatistics_collector
 
 #endif  // LIBSTATISTICS_COLLECTOR__TOPIC_STATISTICS_COLLECTOR__RECEIVED_MESSAGE_PERIOD_HPP_

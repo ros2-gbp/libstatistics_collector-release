@@ -1,3 +1,26 @@
+## libstatistics_collector (jazzy) - 1.7.4-1
+
+The packages in the `libstatistics_collector` repository were released into the `jazzy` distro by running `/usr/bin/bloom-release --track jazzy --rosdistro jazzy libstatistics_collector` on `Wed, 18 Dec 2024 05:27:30 -0000`
+
+The `libstatistics_collector` package was released.
+
+Version of package(s) in repository `libstatistics_collector`:
+
+- upstream repository: https://github.com/ros-tooling/libstatistics_collector.git
+- release repository: https://github.com/ros2-gbp/libstatistics_collector-release.git
+- rosdistro version: `1.7.3-1`
+- old version: `1.7.3-1`
+- new version: `1.7.4-1`
+
+Versions of tools used:
+
+- bloom version: `0.12.0`
+- catkin_pkg version: `0.5.2`
+- rosdep version: `0.22.2`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## libstatistics_collector (humble) - 1.3.4-1
 
 The packages in the `libstatistics_collector` repository were released into the `humble` distro by running `/usr/bin/bloom-release -r humble -y libstatistics_collector` on `Mon, 25 Nov 2024 17:36:35 -0000`

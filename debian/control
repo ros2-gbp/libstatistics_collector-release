@@ -1,0 +1,12 @@
+Source: ros-lyrical-libstatistics-collector
+Section: misc
+Priority: optional
+Maintainer: ROS Tooling Working Group <ros-tooling@googlegroups.com>
+Build-Depends: debhelper (>= 9.0.0), ros-lyrical-ament-cmake-gtest <!nocheck>, ros-lyrical-ament-cmake-ros, ros-lyrical-ament-lint-auto <!nocheck>, ros-lyrical-ament-lint-common <!nocheck>, ros-lyrical-builtin-interfaces, ros-lyrical-performance-test-fixture <!nocheck>, ros-lyrical-rcl, ros-lyrical-rcpputils, ros-lyrical-rcutils <!nocheck>, ros-lyrical-rmw, ros-lyrical-rosidl-default-generators <!nocheck>, ros-lyrical-rosidl-default-runtime <!nocheck>, ros-lyrical-statistics-msgs, ros-lyrical-std-msgs <!nocheck>, ros-lyrical-ros-workspace
+Homepage: https://index.ros.org/p/libstatistics_collector/#lyrical
+Standards-Version: 3.9.2
+
+Package: ros-lyrical-libstatistics-collector
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-lyrical-builtin-interfaces, ros-lyrical-rcl, ros-lyrical-rcpputils, ros-lyrical-rmw, ros-lyrical-statistics-msgs, ros-lyrical-ros-workspace
+Description: Lightweight aggregation utilities to collect statistics and measure message metrics.
